@@ -38,7 +38,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="index.html">Development and UI Design</a></li>
-							<li><a href="graphics.html">Graphic Designs Projects</a></li>
+							<li><a href="graphics.html">Creative Projects</a></li>
 							<li><a href="generic.html">About Me</a></li>
 						</ul>
 					</nav>
@@ -139,13 +139,20 @@
 							<footer>
 								<div class="pagination">
 									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
+									<a href="graphics.html" class="page active">1</a>
 									<a href="graphics2.html" class="page">2</a>
+									<a href="graphics3.html" class="page">3</a>
 									
 								</div>
 							</footer>
 
 					</div>
+					<!-- Image Lightbox -->
+                <div id="img-lightbox" class="lightbox">
+                <span class="close-btn">&times;</span>
+                <img class="lightbox-content" id="lightbox-img">
+                <div id="lightbox-caption"></div>
+                </div>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -211,6 +218,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			 <script>
+            let lastScrollY = 0;
+                document.addEventListener("DOMContentLoaded", () => {
+                const lightbox = document.getElementById("img-lightbox");
+                const lightboxImg = document.getElementById("lightbox-img");
+                const caption = document.getElementById("lightbox-caption");
+                const closeBtn = document.querySelector(".close-btn");
 
+                // Find all images inside .image.fit containers
+                document.querySelectorAll(".image.fit img").forEach(img => {
+                    img.addEventListener("click", () => {
+                    lightbox.style.display = "flex";
+                    lightboxImg.src = img.src;
+                    caption.textContent = img.alt || "";
+                    document.body.style.overflow = "hidden"; // prevent scroll
+                    });
+                });
+
+                // Close when clicking the X or backdrop
+                closeBtn.addEventListener("click", () => {
+                    lightbox.style.display = "none";
+                    document.body.style.overflow = "";
+                });
+                lightbox.addEventListener("click", e => {
+                    if (e.target === lightbox) {
+                    lightbox.style.display = "none";
+                    document.body.style.overflow = "";
+                    }
+                });
+                });
+                </script>
 	</body>
 </html>
