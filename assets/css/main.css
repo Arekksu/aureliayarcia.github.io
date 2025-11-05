@@ -103,6 +103,8 @@ input, select, textarea {
 	appearance: none;
 }
 
+
+
 /* Basic */
 
 	@-ms-viewport {
@@ -3647,7 +3649,7 @@ input, select, textarea {
 		-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 		-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 		transition: transform 1s ease, opacity 1s ease;
-		background: rgba(129, 109, 66, 0.938);
+		background: rgba(167, 118, 89, 0.938);
 		height: 4rem;
 		line-height: 4rem;
 		margin: -4rem auto 0 auto;
@@ -3659,11 +3661,50 @@ input, select, textarea {
 		z-index: 2;
 	}
 
-	
+	/* ===== Intro with 2x2 Photo ===== */
 
-	
+#intro .intro-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.2rem;
+}
 
-		
+#intro .intro-text {
+  text-align: center; /* keeps same Massively hero feel */
+}
+
+#intro .intro-link {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+#intro .intro-photo {
+  flex-shrink: 0;
+}
+
+#intro .intro-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;          /* make it circular; remove if you want a square 2x2 */
+  object-fit: cover;           /* keeps your face centered */
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* Desktop layout: text + photo side by side */
+@media (min-width: 768px) {
+  #intro .intro-layout {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #intro .intro-text {
+    text-align: right;
+    margin-right: 2.5rem;
+  }
+}
+
 
 		#nav strong, #nav b {
 			color: #ffffff;
@@ -3678,7 +3719,7 @@ input, select, textarea {
 		}
 
 		#nav code {
-			background: rgba(255, 255, 255, 0.075);
+			background: rgba(238, 237, 237, 0.075);
 		
 		}
 
@@ -3724,7 +3765,7 @@ input, select, textarea {
 
 					#nav li a:hover {
 						color: inherit !important;
-						background-color: rgb(121, 121, 121);
+						background-color: rgb(238, 238, 238);
 					}
 
 				
@@ -4703,6 +4744,69 @@ input, select, textarea {
   justify-content: center;
 }
 
+/* ===== Tools & Technologies Section ===== */
+.tools-stack {
+  max-width: 950px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.tools-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.tool-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 15px 10px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+  background: #eef2ff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tool-card img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.tool-card span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tools-stack {
+    padding: 28px 18px;
+    margin: 40px 16px;
+  }
+}
+
+
 .lightbox-content {
   max-width: 90%;
   max-height: 85vh;
@@ -4728,6 +4832,109 @@ input, select, textarea {
   font-size: 16px;
   font-style: italic;
 }
+
+/* ===== Education & Activities Section ===== */
+
+/* ===== Light Theme: Education & Activities ===== */
+
+.profile-sections {
+  max-width: 950px;
+  margin: 60px auto 40px;
+  padding: 30px 25px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  color: #1e293b;
+}
+
+.info-block {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+  color: #0f172a;
+}
+
+.edu-card,
+.activity-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.edu-card:hover,
+.activity-card:hover {
+  transform: translateY(-3px);
+  background: #f1f5f9;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+.edu-card h3,
+.activity-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 5px;
+}
+
+.degree,
+.org-name {
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 3px;
+}
+
+.edu-year,
+.org-year {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Interests */
+.interest-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+.interest-list li {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #1e293b;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.interest-list li:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Remove last margin gap */
+.profile-sections:last-child {
+  margin-bottom: 0;
+}
+
+
 
 	/* ===== STORY MODAL ===== */
 .modal{position:fixed;inset:0;display:none;z-index:9999}
